@@ -1,22 +1,8 @@
 <h1>Listing prerequisites</h1>
 
-<table>
-  <tr>
-    <th>Subject</th>
-    <th>Prereq</th>
-  </tr>
-
-<% @prerequisites.each do |prerequisite| %>
-  <tr>
-    <td><%=h prerequisite.subject_id %></td>
-    <td><%=h prerequisite.prereq_id %></td>
-    <td><%= link_to 'Show', prerequisite %></td>
-    <td><%= link_to 'Edit', edit_prerequisite_path(prerequisite) %></td>
-    <td><%= link_to 'Destroy', prerequisite, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
-
-<%= link_to 'New prerequisite', new_prerequisite_path %>
+<%- @prerequisites.each do |prerequisite| -%>
+  <div>
+    <%= prerequisite.prereq.name %>
+    <%= link_to 'destroy', subject_prerequisite_path(@subject, prerequisite), :method => :delete %>
+  </div>
+<%- end -%>

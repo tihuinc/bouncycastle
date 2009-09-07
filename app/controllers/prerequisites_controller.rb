@@ -1,8 +1,10 @@
 class PrerequisitesController < ApplicationController
+  before_filter :find_subject, :only => [:index, :create, :destroy]
+
   # GET /prerequisites
   # GET /prerequisites.xml
   def index
-    @prerequisites = Prerequisite.all
+    @prerequisites = @subject.prerequisites
 
     respond_to do |format|
       format.html # index.html.erb
@@ -40,15 +42,16 @@ class PrerequisitesController < ApplicationController
   # POST /prerequisites
   # POST /prerequisites.xml
   def create
-    @prerequisite = Prerequisite.new(params[:prerequisite])
+    @prerequisite = @subject.prerequisites.build(:prereq_id => params[:prereq_id])
 
     respond_to do |format|
       if @prerequisite.save
         flash[:notice] = 'Prerequisite was successfully created.'
-        format.html { redirect_to(@prerequisite) }
+        format.html { redirect_to(@subject) }
         format.xml  { render :xml => @prerequisite, :status => :created, :location => @prerequisite }
       else
-        format.html { render :action => "new" }
+        flash[:error] = 'There was a problem creating the prerequisite'
+        format.html { redirect_to(subject) }
         format.xml  { render :xml => @prerequisite.errors, :status => :unprocessable_entity }
       end
     end
@@ -78,8 +81,14 @@ class PrerequisitesController < ApplicationController
     @prerequisite.destroy
 
     respond_to do |format|
-      format.html { redirect_to(prerequisites_url) }
+      flash[:notice] = 'Prerequisite successfully destroyed'
+      format.html { redirect_to(subject_path(@subject)) }
       format.xml  { head :ok }
     end
   end
+
+  private
+    def find_subject
+      @subject = Subject.find(params[:subject_id])
+    end
 end

@@ -1,10 +1,22 @@
-<p>
-  <b>Name:</b>
-  <%=h @subject.name %>
-</p>
+<h1><%=h @subject.name.capitalize %></h1>
 
-<%= link_to 'Create a prereq', new_subject_prerequisite_path(@subject) %>
+<h2>Current prerequisites:</h2>
+<%- @prerequisites.each do |prerequisite| -%>
+  <div>
+    <%= prerequisite.prereq.name %>
+    <%= link_to 'destroy', subject_prerequisite_path(@subject, prerequisite), :method => :delete %>
+  </div>
+<%- end -%>
 
+
+<h2>Add a prerequisite:</h2>
+<%- @subjects.each do |subject| -%>
+  <div>
+    <%= subject.name %>
+    <%= link_to 'Add', subject_prerequisites_path(@subject, :prereq_id => subject.id),
+      :method => :post %>
+  </div>
+<%- end -%>
 
 <%= link_to 'Edit', edit_subject_path(@subject) %> |
 <%= link_to 'Back', subjects_path %>

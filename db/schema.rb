@@ -11,9 +11,11 @@
 
 ActiveRecord::Schema.define(:version => 20090717061241) do
 
-  create_table "prerequisites", :id => false, :force => true do |t|
-    t.integer "subject_id"
-    t.integer "prereq_id"
+  create_table "prerequisites", :force => true do |t|
+    t.integer  "subject_id"
+    t.integer  "prereq_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "subjects", :force => true do |t|
