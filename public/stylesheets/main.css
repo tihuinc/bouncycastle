@@ -55,3 +55,7 @@ a:hover { color: #fff; background-color:#000; }
 .notice {
   background-color: #9FFFA3;
 }
+
+.error {
+  background-color: #FF7F7F;
+}
