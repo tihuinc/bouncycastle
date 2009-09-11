@@ -9,11 +9,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090717061241) do
+ActiveRecord::Schema.define(:version => 20090908180553) do
 
   create_table "prerequisites", :force => true do |t|
     t.integer  "subject_id"
     t.integer  "prereq_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "resources", :force => true do |t|
+    t.string   "name"
+    t.string   "uri"
+    t.integer  "subject_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

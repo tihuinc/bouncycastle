@@ -1,7 +1,10 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :resources
+
 
   map.resources :subjects do |s|
     s.resources :prerequisites
+    s.resources :resources
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

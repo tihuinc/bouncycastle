@@ -8,6 +8,15 @@
   </div>
 <%- end -%>
 
+<h2>Resources</h2>
+<%= link_to 'New Resource', new_subject_resource_path(@subject) %>
+
+<%- @resources.each do |resource| -%>
+  <div>
+    <%= link_to resource.name, resource.uri %> <%= link_to 'destroy', subject_resource_path(@subject, resource), :method => :delete %>
+  </div>
+<%- end -%>
+
 
 <h2>Add a prerequisite:</h2>
 <%- @subjects.each do |subject| -%>

@@ -16,6 +16,7 @@ class SubjectsController < ApplicationController
     @subject       = Subject.find(params[:id])
     @subjects      = Subject.all
     @prerequisites = @subject.prerequisites
+    @resources     = @subject.resources
 
     respond_to do |format|
       format.html # show.html.erb
