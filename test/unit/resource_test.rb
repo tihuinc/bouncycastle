@@ -1,8 +1,12 @@
 require 'test_helper'
 
 class ResourceTest < ActiveSupport::TestCase
-  # Replace this with your real tests.
-  test "the truth" do
-    assert true
+  def test_URL_format
+    resource = Resource.new(:uri => "google.com")
+    
+    assert_equal "http://google.com", resource.uri
+    resource.uri = "http://google.com"
+    assert_equal "http://google.com", resource.uri
+    
   end
 end

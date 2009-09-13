@@ -5,7 +5,7 @@ require 'test_help'
 begin
   require 'redgreen'
 rescue LoadError
-  puts 'sudo gem install redgreen for fancy colors'
+  puts 'sudo gem install redgreen for fancy colors.'
 end
 
 class ActiveSupport::TestCase
