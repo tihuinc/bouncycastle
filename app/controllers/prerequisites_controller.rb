@@ -51,7 +51,7 @@ class PrerequisitesController < ApplicationController
         format.xml  { render :xml => @prerequisite, :status => :created, :location => @prerequisite }
       else
         flash[:error] = 'There was a problem creating the prerequisite'
-        format.html { redirect_to(subject) }
+        format.html { redirect_to(@subject) }
         format.xml  { render :xml => @prerequisite.errors, :status => :unprocessable_entity }
       end
     end

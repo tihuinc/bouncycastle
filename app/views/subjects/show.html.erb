@@ -19,7 +19,7 @@
 
 
 <h2>Add a prerequisite:</h2>
-<%- @subjects.each do |subject| -%>
+<%- @eligible_subjects.each do |subject| -%>
   <div>
     <%= subject.name %>
     <%= link_to 'Add', subject_prerequisites_path(@subject, :prereq_id => subject.id),

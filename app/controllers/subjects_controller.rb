@@ -13,10 +13,10 @@ class SubjectsController < ApplicationController
   # GET /subjects/1
   # GET /subjects/1.xml
   def show
-    @subject       = Subject.find(params[:id])
-    @subjects      = Subject.all
-    @prerequisites = @subject.prerequisites
-    @resources     = @subject.resources
+    @subject           = Subject.find(params[:id])
+    @eligible_subjects = Subject.all.reject { |s| s == @subject }
+    @prerequisites     = @subject.prerequisites
+    @resources         = @subject.resources
 
     respond_to do |format|
       format.html # show.html.erb
