@@ -3,7 +3,7 @@ require File.expand_path(File.dirname(__FILE__) + "/../config/environment")
 require 'test_help'
 
 begin
-  require 'redgreen'
+  require 'redgreen' unless ENV['TM_MODE']
 rescue LoadError
   puts 'sudo gem install redgreen for fancy colors.'
 end
