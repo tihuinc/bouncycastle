@@ -4,18 +4,38 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-  <title>The bounciest of castles</title>
-  
+  <title>The bounciest of castles - <%= yield(:title) %></title>
+
   <%= stylesheet_link_tag 'main' %>
 </head>
 
 <body>
 
-  <%- flash.each do |key, msg| -%>
-    <div class="<%= key %>"><%= msg %></div>
-  <%- end -%>
+  <div id="container">
+    <div id="header"><h1>This is bouncy!</h1></div>
 
-  <%= yield %>
+    <div id="content">
+      <%- flash.each do |key, msg| -%>
+        <div class="<%= key %>"><%= msg %></div>
+      <%- end -%>
+
+      <%= yield %>
+    </div>
+
+    <div id="secondary">
+      <ul>
+        <li><%= link_to 'Subjects', subjects_path %></li>
+        <li><%= link_to 'Google', 'http://www.google.com/' %></li>
+        <li><%= link_to 'Google', 'http://www.google.com/' %></li>
+      </ul>
+
+      <%= yield(:secondary) %>
+    </div>
+
+    <div class="clear"></div>
+  </div>
+
+  <div id="footer"><p>footer</p></div>
 
 </body>
 </html>

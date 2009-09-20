@@ -2,7 +2,7 @@ class SubjectsController < ApplicationController
   # GET /subjects
   # GET /subjects.xml
   def index
-    @subjects = Subject.all
+    @subjects = Subject.all.sort { |a, b| a.name <=> b.name }
 
     respond_to do |format|
       format.html # index.html.erb
@@ -15,7 +15,7 @@ class SubjectsController < ApplicationController
   def show
     @subject           = Subject.find(params[:id])
     @eligible_subjects = Subject.all.reject { |s| s == @subject }
-    @prerequisites     = @subject.prerequisites
+    @prerequisites     = @subject.prerequisites.sort { |a, b| a.prereq.name <=> b.prereq.name }
     @resources         = @subject.resources
 
     respond_to do |format|

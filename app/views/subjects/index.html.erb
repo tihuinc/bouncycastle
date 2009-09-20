@@ -1,20 +1,18 @@
-<h1>Listing subjects</h1>
-
-<table>
-  <tr>
-    <th>Name</th>
-  </tr>
+<%- content_for :title, 'Subjects' -%>
 
 <% @subjects.each do |subject| %>
-  <tr>
-    <td><%=h subject.name %></td>
-    <td><%= link_to 'Show', subject %></td>
-    <td><%= link_to 'Edit', edit_subject_path(subject) %></td>
-    <td><%= link_to 'Destroy', subject, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
+  <div class="subject">
+    <h2><%= link_to h(subject.name.capitalize), subject %></h2>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sapien urna, molestie porta
+      molestie in, semper congue est. Phasellus ac tortor justo, at ullamcorper erat.
+    </p>
+    <div class="actions">
+      <%= link_to 'Edit', edit_subject_path(subject) %>
+      <%= link_to 'Destroy', subject, :confirm => 'Are you sure?', :method => :delete %>
+    </div>
+  </div>
 <% end %>
-</table>
 
-<br />
 
 <%= link_to 'New subject', new_subject_path %>

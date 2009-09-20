@@ -1,31 +1,38 @@
-<h1><%=h @subject.name.capitalize %></h1>
+<%- content_for :title, h(@subject.name.capitalize) -%>
 
-<h2>Current prerequisites:</h2>
-<%- @prerequisites.each do |prerequisite| -%>
-  <div>
-    <%= link_to prerequisite.prereq.name, subject_path(prerequisite.prereq) %>
-    <%= link_to 'destroy', subject_prerequisite_path(@subject, prerequisite), :method => :delete %>
-  </div>
-<%- end -%>
+<div id="main">
+  <h2><%=h @subject.name.capitalize %></h2>
+  <p>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sapien urna, molestie porta
+    molestie in, semper congue est. Phasellus ac tortor justo, at ullamcorper erat.
+  </p>
 
-<h2>Resources</h2>
-<%= link_to 'New Resource', new_subject_resource_path(@subject) %>
+  <%- @resources.each do |resource| -%>
+    <div class="resource">
+      <h3><%= link_to resource.name.titleize, resource.uri %></h3>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sapien urna, molestie porta
+        molestie in, semper congue est. Phasellus ac tortor justo, at ullamcorper erat.
+      </p>
+      <div clas="actions">
+        <%= link_to 'destroy', subject_resource_path(@subject, resource), :method => :delete %>
+      </div>
+    </div>
+  <%- end -%>
+</div>
 
-<%- @resources.each do |resource| -%>
-  <div>
-      <%= link_to resource.name, resource.uri %> <%= link_to 'destroy', subject_resource_path(@subject, resource), :method => :delete %>
-  </div>
-<%- end -%>
+<div id="aux">
+  <h4>Prerequisites:</h4>
 
+  <ul>
+    <%- @prerequisites.each do |prerequisite| -%>
+      <li><%= link_to prerequisite.prereq.name, subject_path(prerequisite.prereq) %></li>
+    <%- end -%>
+  </ul>
 
-<h2>Add a prerequisite:</h2>
-<%- @eligible_subjects.each do |subject| -%>
-  <div>
-    <%= subject.name %>
-    <%= link_to 'Add', subject_prerequisites_path(@subject, :prereq_id => subject.id),
-      :method => :post %>
-  </div>
-<%- end -%>
-
-<%= link_to 'Edit', edit_subject_path(@subject) %> |
-<%= link_to 'Back', subjects_path %>
+  <h4>Page Actions:</h4>
+  <ul>
+    <li><%= link_to 'Add prerequisite', new_subject_prerequisite_path(@subject) %></li>
+    <li><%= link_to 'Edit subject', edit_subject_path(@subject) %></li>
+  </ul>
+</div>
