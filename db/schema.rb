@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090927220536) do
+ActiveRecord::Schema.define(:version => 20090927220938) do
 
   create_table "prerequisites", :force => true do |t|
     t.integer  "subject_id"
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(:version => 20090927220536) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.text     "description"
   end
 
   create_table "votes", :force => true do |t|

@@ -3,16 +3,12 @@
 <% @subjects.each do |subject| %>
   <div class="subject">
     <h2><%= link_to h(subject.name.capitalize), subject %></h2>
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sapien urna, molestie porta
-      molestie in, semper congue est. Phasellus ac tortor justo, at ullamcorper erat.
-    </p>
+    <p><%= subject.description %></p>
     <div class="actions">
       <%= link_to 'Edit', edit_subject_path(subject) %>
       <%= link_to 'Destroy', subject, :confirm => 'Are you sure?', :method => :delete %>
     </div>
   </div>
 <% end %>
-
 
 <%= link_to 'New subject', new_subject_path %>

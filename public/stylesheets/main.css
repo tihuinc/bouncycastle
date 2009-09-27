@@ -190,6 +190,7 @@ div.form_chunk {
 
 .notice {
   background-color: #9FFFA3;
+  margin: 0 0 15px 0;
 }
 
 .error {

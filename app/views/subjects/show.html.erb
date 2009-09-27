@@ -2,10 +2,7 @@
 
 <div id="main">
   <h2><%=h @subject.name.capitalize %></h2>
-  <p>
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sapien urna, molestie porta
-    molestie in, semper congue est. Phasellus ac tortor justo, at ullamcorper erat.
-  </p>
+  <p><%= @subject.description %></p>
 
   <%- @resources.each do |resource| -%>
     <div class="resource">
