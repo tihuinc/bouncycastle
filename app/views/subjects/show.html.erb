@@ -9,14 +9,24 @@
 
   <%- @resources.each do |resource| -%>
     <div class="resource">
-      <h3><%= link_to resource.name.titleize, resource.uri %></h3>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sapien urna, molestie porta
-        molestie in, semper congue est. Phasellus ac tortor justo, at ullamcorper erat.
-      </p>
-      <div clas="actions">
-        <%= link_to 'destroy', subject_resource_path(@subject, resource), :method => :delete %>
+      <div class="votes">
+        <div class="total_votes"><%= resource.votes.count %></div>
+        <div class="up_votes"><%= resource.upvote_count %></div>
+        <div class="down_votes"><%= resource.downvote_count %></div>
       </div>
+
+      <div class="info">
+        <h3><%= link_to resource.name.titleize, resource.uri %></h3>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sapien urna, molestie porta
+          molestie in, semper congue est. Phasellus ac tortor justo, at ullamcorper erat.
+        </p>
+        <div clas="actions">
+          <%= link_to 'destroy', subject_resource_path(@subject, resource), :method => :delete %>
+        </div>
+      </div>
+
+      <div class="clear"></div>
     </div>
   <%- end -%>
 </div>

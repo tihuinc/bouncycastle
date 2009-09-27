@@ -123,7 +123,24 @@ div.resource {
 div.resource p {
   margin: 0;
 }
-
+div.resource .votes {
+  width: 40px;
+  float: left;
+  text-align: center;
+}
+div.resource .votes .total_votes {
+  font-size: 2em;
+}
+div.resource .votes .up_votes {
+  color: green;
+}
+div.resource .votes .down_votes {
+  color: red;
+}
+div.resource .info {
+  float: right;
+  width: 420px;
+}
 
 
 .fieldWithErrors {
