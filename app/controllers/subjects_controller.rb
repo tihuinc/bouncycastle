@@ -16,7 +16,7 @@ class SubjectsController < ApplicationController
     @subject           = Subject.find(params[:id])
     @eligible_subjects = Subject.all.reject { |s| s == @subject }
     @prerequisites     = @subject.prerequisites.sort { |a, b| a.prereq.name <=> b.prereq.name }
-    @resources         = @subject.resources
+    @resources         = @subject.resources.sort { |a, b| b.netvote_count <=> a.netvote_count }
 
     respond_to do |format|
       format.html # show.html.erb
