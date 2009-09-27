@@ -30,4 +30,16 @@ class ResourceTest < ActiveSupport::TestCase
 
     assert_equal(1, resource.downvote_count)
   end
+
+  def test_should_provide_netvote_count
+    resource = Resource.create(:subject_id => 1)
+    assert resource.valid?
+
+    resource.votes.build(:up => true)
+    resource.votes.build(:up => true)
+    resource.votes.build(:up => false)
+    resource.save
+
+    assert_equal(1, resource.netvote_count)
+  end
 end
