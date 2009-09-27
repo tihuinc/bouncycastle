@@ -4,7 +4,7 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resources :subjects do |s|
     s.resources :prerequisites
-    s.resources :resources
+    s.resources :resources, :member => { :upvote => :get, :downvote => :get }
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

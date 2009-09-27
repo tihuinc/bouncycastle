@@ -128,14 +128,16 @@ div.resource .votes {
   float: left;
   text-align: center;
 }
-div.resource .votes .total_votes {
+div.resource .votes .net_votes {
   font-size: 2em;
 }
-div.resource .votes .up_votes {
+div.resource .votes .up_votes a {
   color: green;
+  text-decoration: none;
 }
-div.resource .votes .down_votes {
+div.resource .votes .down_votes a {
   color: red;
+  text-decoration: none;
 }
 div.resource .info {
   float: right;
