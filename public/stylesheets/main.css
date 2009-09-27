@@ -52,7 +52,6 @@ a {
 }
 a:visited {
   color: #58636B;
-  text-decoration: line-through;
 }
 a:hover {
   color: #24455D;
@@ -143,6 +142,14 @@ div.resource .info {
   float: right;
   width: 420px;
 }
+
+
+
+div.form_chunk {
+  margin: 0 0 15px 0;
+}
+
+
 
 
 .fieldWithErrors {

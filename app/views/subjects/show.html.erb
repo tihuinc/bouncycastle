@@ -21,10 +21,7 @@
 
       <div class="info">
         <h3><%= link_to resource.name.titleize, resource.uri %></h3>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sapien urna, molestie porta
-          molestie in, semper congue est. Phasellus ac tortor justo, at ullamcorper erat.
-        </p>
+        <p><%= resource.description %></p>
         <div clas="actions">
           <%= link_to 'destroy', subject_resource_path(@subject, resource), :method => :delete %>
         </div>
@@ -46,6 +43,7 @@
 
   <h4>Page Actions:</h4>
   <ul>
+    <li><%= link_to 'Add resource', new_subject_resource_path(@subject) %></li>
     <li><%= link_to 'Add prerequisite', new_subject_prerequisite_path(@subject) %></li>
     <li><%= link_to 'Edit subject', edit_subject_path(@subject) %></li>
   </ul>

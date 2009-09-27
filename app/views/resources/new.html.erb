@@ -1,17 +1,30 @@
-<h1>New resource</h1>
+<h1><%= @subject.name.titleize %></h1>
+
+<p>Create a new resource</p>
 
 <% form_for([:subject, @resource]) do |f| %>
   <%= f.error_messages %>
 
-  <p>
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-  </p>
-  <p>
-    <%= f.label :uri %>
-    <%= f.text_field :uri %>
-    <%= f.submit 'Create' %>
-  </p>
-<% end %>
+  <div class="form_chunk">
+    <div class="label"><%= f.label :name %></div>
+    <div class="input"><%= f.text_field :name %></div>
+  </div>
 
-<%= link_to 'Back', resources_path %>
+  <div class="form_chunk">
+    <div class="label"><%= f.label :uri %></div>
+    <div class="input"><%= f.text_field :uri %></div>
+  </div>
+
+  <div class="form_chunk">
+    <div class="label"><%= f.label :description %></div>
+    <div class="input"><%= f.text_area :description %></div>
+  </div>
+
+  <div class="form_chunk">
+    <div class="label"></div>
+    <div class="input">
+      <%= link_to 'Cancel', @subject %>
+      <%= f.submit 'Create resource' %>
+    </div>
+  </div>
+<% end %>
