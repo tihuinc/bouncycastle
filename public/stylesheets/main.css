@@ -95,6 +95,9 @@ div#aux {
   float: right;
   width: 140px;
 }
+div#aux ul {
+  margin: 0 0 0 10px;
+}
 
 div#secondary {
   width: 140px;

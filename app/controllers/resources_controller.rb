@@ -1,7 +1,7 @@
 class ResourcesController < ApplicationController
 
   before_filter :find_subject
-  before_filter :find_resource, :except => [:new, :create]
+  before_filter :find_resource, :except => [:index, :new, :create]
 
   # GET /resources
   # GET /resources.xml
@@ -61,7 +61,7 @@ class ResourcesController < ApplicationController
     respond_to do |format|
       if @resource.update_attributes(params[:resource])
         flash[:notice] = 'Resource was successfully updated.'
-        format.html { redirect_to(@resource) }
+        format.html { redirect_to(@subject) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

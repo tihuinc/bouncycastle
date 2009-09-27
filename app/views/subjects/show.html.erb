@@ -30,13 +30,15 @@
 </div>
 
 <div id="aux">
-  <h4>Prerequisites:</h4>
+  <%- if !@prerequisites.empty? -%>
+    <h4>Prerequisites:</h4>
 
-  <ul>
-    <%- @prerequisites.each do |prerequisite| -%>
-      <li><%= link_to prerequisite.prereq.name, subject_path(prerequisite.prereq) %></li>
-    <%- end -%>
-  </ul>
+    <ul>
+      <%- @prerequisites.each do |prerequisite| -%>
+        <li><%= link_to prerequisite.prereq.name, subject_path(prerequisite.prereq) %></li>
+      <%- end -%>
+    </ul>
+  <%- end -%>
 
   <h4>Page Actions:</h4>
   <ul>
