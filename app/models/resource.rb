@@ -15,11 +15,11 @@ class Resource < ActiveRecord::Base
   end
 
   def upvote_count
-    votes.count(:conditions => { :up => true })
+    @upvote_count ||= votes.count(:conditions => { :up => true })
   end
 
   def downvote_count
-    votes.count(:conditions => { :up => false })
+    @downvote_count ||= votes.count(:conditions => { :up => false })
   end
 
   def netvote_count
