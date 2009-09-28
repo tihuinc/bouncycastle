@@ -199,3 +199,27 @@ div.form_chunk {
 .error {
   background-color: #FF7F7F;
 }
+
+
+/*percent bar*/
+.percent_whole {
+  border: 1px solid black;
+  background-color: #CCCCCC;
+  width: 100px;
+  height: .5em;
+}
+
+.percent_part {
+  background-color: #6D818F;
+  height: .5em;
+}
+
+
+
+
+
+
+
+
+
+

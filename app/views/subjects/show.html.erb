@@ -18,6 +18,9 @@
 
       <div class="info">
         <h3><%= link_to resource.name.titleize, resource.uri %></h3>
+        <div class="percent_whole">
+          <div class="percent_part" style="width: <%=resource.percent_upvote %>%"></div>
+        </div>
         <p><%= resource.description %></p>
         <div clas="actions">
           <%= link_to 'edit', edit_subject_resource_path(@subject, resource) %>

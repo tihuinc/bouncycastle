@@ -25,4 +25,12 @@ class Resource < ActiveRecord::Base
   def netvote_count
     upvote_count - downvote_count
   end
+
+  def total_count
+    upvote_count + downvote_count
+  end
+
+  def percent_upvote
+    upvote_count.to_f / total_count * 100
+  end
 end
