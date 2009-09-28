@@ -1,4 +1,4 @@
-<% form_for(@subject) do |f| %>
+<% form_for([@subject, @resource]) do |f| %>
   <%= f.error_messages %>
 
   <div class="form_chunk">
@@ -6,6 +6,11 @@
     <div class="input"><%= f.text_field :name %></div>
   </div>
 
+  <div class="form_chunk">
+    <div class="label"><%= f.label :uri %></div>
+    <div class="input"><%= f.text_field :uri %></div>
+  </div>
+  
   <div class="form_chunk">
     <div class="label"><%= f.label :description %></div>
     <div class="input"><%= f.text_area :description, :rows => 7 %></div>
@@ -19,4 +24,3 @@
     </div>
   </div>
 <% end %>
-

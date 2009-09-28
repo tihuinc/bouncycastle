@@ -20,6 +20,8 @@
         <h3><%= link_to resource.name.titleize, resource.uri %></h3>
         <p><%= resource.description %></p>
         <div clas="actions">
+          <%= link_to 'edit', edit_subject_resource_path(@subject, resource) %>
+          |
           <%= link_to 'destroy', subject_resource_path(@subject, resource), :method => :delete %>
         </div>
       </div>
