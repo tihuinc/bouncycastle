@@ -14,7 +14,7 @@ class SubjectsControllerTest < ActionController::TestCase
 
   test "should create subject" do
     assert_difference('Subject.count') do
-      post :create, :subject => { }
+      post :create, :subject => { :name => 'Test subject' }
     end
 
     assert_redirected_to subject_path(assigns(:subject))

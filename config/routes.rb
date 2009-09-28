@@ -3,7 +3,7 @@ ActionController::Routing::Routes.draw do |map|
 
 
   map.resources :subjects do |s|
-    s.resources :prerequisites
+    s.resources :prerequisites, :except => [:show, :edit, :update]
     s.resources :resources, :member => { :upvote => :get, :downvote => :get }
   end
 

@@ -1,5 +1,5 @@
 class PrerequisitesController < ApplicationController
-  before_filter :find_subject, :only => [:index, :create, :destroy]
+  before_filter :find_subject, :only => [:index, :new, :create, :destroy]
 
   # GET /prerequisites
   # GET /prerequisites.xml
@@ -12,17 +12,6 @@ class PrerequisitesController < ApplicationController
     end
   end
 
-  # GET /prerequisites/1
-  # GET /prerequisites/1.xml
-  def show
-    @prerequisite = Prerequisite.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @prerequisite }
-    end
-  end
-
   # GET /prerequisites/new
   # GET /prerequisites/new.xml
   def new
@@ -32,11 +21,6 @@ class PrerequisitesController < ApplicationController
       format.html # new.html.erb
       format.xml  { render :xml => @prerequisite }
     end
-  end
-
-  # GET /prerequisites/1/edit
-  def edit
-    @prerequisite = Prerequisite.find(params[:id])
   end
 
   # POST /prerequisites
@@ -52,23 +36,6 @@ class PrerequisitesController < ApplicationController
       else
         flash[:error] = 'There was a problem creating the prerequisite'
         format.html { redirect_to(@subject) }
-        format.xml  { render :xml => @prerequisite.errors, :status => :unprocessable_entity }
-      end
-    end
-  end
-
-  # PUT /prerequisites/1
-  # PUT /prerequisites/1.xml
-  def update
-    @prerequisite = Prerequisite.find(params[:id])
-
-    respond_to do |format|
-      if @prerequisite.update_attributes(params[:prerequisite])
-        flash[:notice] = 'Prerequisite was successfully updated.'
-        format.html { redirect_to(@prerequisite) }
-        format.xml  { head :ok }
-      else
-        format.html { render :action => "edit" }
         format.xml  { render :xml => @prerequisite.errors, :status => :unprocessable_entity }
       end
     end
