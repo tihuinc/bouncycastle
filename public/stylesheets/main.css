@@ -214,6 +214,11 @@ div.form_chunk {
   height: .5em;
 }
 
+.feature_spot {
+  width: 50%;
+  float: left;
+}
+
 
 
 

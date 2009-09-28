@@ -1,0 +1,15 @@
+<div class="feature_spot">
+  <h1>Recent</h1>
+
+  <%- @recent.each do |subject| -%>
+    <h3><%= link_to subject.name.titleize, subject %></h3>
+  <%- end -%>
+</div>
+
+<div class="feature_spot">
+  <h1>Random</h1>
+
+  <%- @random.each do |subject| -%>
+    <h3><%= link_to subject.name.titleize, subject %></h3>
+  <%- end -%>
+</div>
